@@ -29,7 +29,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
-      MONGO_INITDB_DATABASE: TodoDB
+      MONGO_INITDB_DATABASE: MapCoordinates
 
   mongo-express:
     image: mongo-express:latest

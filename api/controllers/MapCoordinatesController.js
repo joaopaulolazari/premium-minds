@@ -15,6 +15,7 @@ exports.listAllMapCoordinates = function(req, res) {
 
 exports.create = function(req, res) {
   const newCoordinate = new MapCoordinates(req.body);
+  console.log('newCoordinate', newCoordinate)
   newCoordinate.save(function(err, task) {
     if (err) {
       res.send(err);

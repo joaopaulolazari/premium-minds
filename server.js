@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 
 // eslint-disable-next-line no-unused-vars
-const Task = require('./api/models/todoListModel');
+const MapCoordinates = require('./api/models/MapCoordinatesModel');
 // created model loading here
 
 const bodyParser = require('body-parser');
@@ -15,7 +15,7 @@ const bodyParser = require('body-parser');
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
 mongoose
-  .connect('mongodb://root:root@mongo:27017/TodoDB?authSource=admin&w=1', {
+  .connect('mongodb://root:root@mongo:27017/MapCoordinates?authSource=admin&w=1', {
     auth: { authdb: 'admin' },
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
   res.send('Hello');
 });
 
-const routes = require('./api/routes/todoListRoutes'); // importing route
+const routes = require('./api/routes/MapCoordinatesRoutes'); // importing route
 routes(app); // register the route
 
 app.listen(port, () => {
