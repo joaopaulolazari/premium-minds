@@ -1,0 +1,82 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Premium Minds Test"
+  },
+  "host": "localhost:3000",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/count": {
+      "get": {
+        "tags": [
+          "Count pokemon`s"
+        ],
+        "summary": "Get count of pokemon`s",
+        "responses": {
+          "200": {
+            "description": "Message success"
+          }
+        }
+      }
+    },
+    "/send-command": {
+      "post": {
+        "tags": [
+          "Send command movement"
+        ],
+        "summary": "Send command movement",
+        "parameters": [
+          {
+            "name": "command",
+            "in": "body",
+            "description": "Command to movement",
+            "schema": {
+              "required": [
+                "command"
+              ],
+              "properties": {
+                "command": {
+                  "type": "string",
+                  "enum": [
+                    "N",
+                    "S",
+                    "L",
+                    "O"
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Message success"
+          }
+        }
+      }
+    },
+    "/reset": {
+      "post": {
+        "tags": [
+          "Reset game"
+        ],
+        "summary": "Reset game",
+        "responses": {
+          "200": {
+            "description": "Message success"
+          }
+        }
+      }
+    }
+  }
+}
