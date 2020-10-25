@@ -1,14 +1,10 @@
-const validator = require('express-joi-validation').createValidator({})
+const validator = require('express-joi-validation').createValidator({});
 
-const mapCoordinatesSchemas = require('./controllers/schemas/MapCoordinatesSchema');
-const mapCoordinatesController = require('./controllers/MapCoordinatesController');
+const { sendCommand: sendCommandValidator } = require('./controllers/schemas/MapCoordinatesSchema');
 
-module.exports = (app) => {
+const { sendCommand: sendCommandAction } = require('./controllers/MapCoordinatesController');
+
+module.exports = app => {
   // MapCoordinates Routes
-  app
-    .post(
-      '/api/send-command',
-      validator.body(mapCoordinatesSchemas.create),
-      mapCoordinatesController.sendCommand
-    );
+  app.post('/api/send-command', validator.body(sendCommandValidator), sendCommandAction);
 };

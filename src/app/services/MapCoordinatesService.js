@@ -6,7 +6,6 @@ const {
 } = require('../../infra/database/repository/MapCoordinatesRepository');
 
 const moveInMap = async ({ command }) => {
-  console.log('command', command);
   let lastCoordinate = await getLastCoordinate();
 
   if (!lastCoordinate) {
@@ -16,7 +15,7 @@ const moveInMap = async ({ command }) => {
 
   let { x, y } = lastCoordinate;
 
-  switch(command) {
+  switch (command) {
     case 'N':
       y += 1;
       break;
@@ -30,13 +29,14 @@ const moveInMap = async ({ command }) => {
       x -= 1;
       break;
     default:
-      throw new Error('Invalid command.')
+      throw new Error('Invalid command.');
   }
 
-  const existCoordinate = await findCoordinate({ x, y});
+  const existCoordinate = await findCoordinate({ x, y });
   if (existCoordinate) await removeCoordinate(existCoordinate);
 
-  return await insertCoordinate({ x, y });
+  const newCoordinate = await insertCoordinate({ x, y });
+  return newCoordinate;
 };
 
 module.exports = {

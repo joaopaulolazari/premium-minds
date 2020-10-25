@@ -1,18 +1,4 @@
-const mongoose = require('mongoose');
-const {
-  moveInMap
-} =  require('../../../app/services/MapCoordinatesService');
-
-const MapCoordinates = mongoose.model('MapCoordinates');
-
-const listAllMapCoordinates = (req, res) => {
-  MapCoordinates.find({}, function(err, task) {
-    if (err) {
-      res.send(err);
-    }
-    res.json(task);
-  });
-};
+const { moveInMap } = require('../../../app/services/MapCoordinatesService');
 
 const sendCommand = (req, res) => {
   try {
@@ -24,6 +10,5 @@ const sendCommand = (req, res) => {
 };
 
 module.exports = {
-  sendCommand,
-  listAllMapCoordinates
-}
+  sendCommand
+};

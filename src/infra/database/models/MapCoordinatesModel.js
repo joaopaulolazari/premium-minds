@@ -1,6 +1,6 @@
-'use strict';
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 
 const MapCoordinatesSchema = new Schema({
   x: {
@@ -10,9 +10,9 @@ const MapCoordinatesSchema = new Schema({
   y: {
     type: Number,
     required: true
-  },
+  }
 });
 
-MapCoordinatesSchema.index({x: 1, y: 1}, {unique: true});
+MapCoordinatesSchema.index({ x: 1, y: 1 }, { unique: true });
 
 module.exports = mongoose.model('MapCoordinates', MapCoordinatesSchema);

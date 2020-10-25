@@ -1,16 +1,13 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 
 const app = express();
-
 const port = process.env.PORT || 3000;
-
-const mongoose = require('mongoose');
 
 // eslint-disable-next-line no-unused-vars
 const MapCoordinates = require('./src/infra/database/models/MapCoordinatesModel');
 // created model loading here
-
-const bodyParser = require('body-parser');
 
 // mongoose instance connection url connection
 mongoose.Promise = global.Promise;
@@ -19,7 +16,7 @@ mongoose
     auth: { authdb: 'admin' },
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
+    useCreateIndex: true
   })
   .catch(err => {
     console.log('Unable to connect', err);
@@ -32,9 +29,10 @@ app.get('/', (req, res) => {
   res.send('Hello');
 });
 
-const routes = require('./src/interfaces/http/Router'); // importing route
+const routes = require('./src/interfaces/http/Router');
+// importing route
 routes(app); // register the route
 
 app.listen(port, () => {
-  console.log('Node.js + MongoDB RESTful API server started on: ' + port);
+  console.log(`Node.js + MongoDB RESTful API server started on: ${port}`);
 });

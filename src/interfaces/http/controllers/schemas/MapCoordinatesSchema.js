@@ -1,9 +1,9 @@
 const Joi = require('joi');
 
-const create = Joi.object({
-  command: Joi.string().valid('N', 'S', 'L', 'O', 'F', 'C').required()
+const sendCommand = Joi.object({
+  command: Joi.string().valid('N', 'S', 'L', 'O').required()
 });
 
 module.exports = {
-  create
-}
+  sendCommand
+};
