@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 
 // eslint-disable-next-line no-unused-vars
-const MapCoordinates = require('./api/infra/database/models/MapCoordinatesModel');
+const MapCoordinates = require('./src/infra/database/models/MapCoordinatesModel');
 // created model loading here
 
 const bodyParser = require('body-parser');
@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
   res.send('Hello');
 });
 
-const routes = require('./api/interfaces/http/Router'); // importing route
+const routes = require('./src/interfaces/http/Router'); // importing route
 routes(app); // register the route
 
 app.listen(port, () => {

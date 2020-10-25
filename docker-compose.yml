@@ -13,7 +13,7 @@ services:
       - 3000:3000
     volumes:
       - ./server.js:/srv/server.js
-      - ./api:/srv/api
+      - ./src:/srv/src
 
   mongo:
     image: mongo:4.1.4-xenial
