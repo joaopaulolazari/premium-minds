@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
   res.send('Hello');
 });
 
-const routes = require('./api/routes/MapCoordinatesRoutes'); // importing route
+const routes = require('./api/interfaces/http/Router'); // importing route
 routes(app); // register the route
 
 app.listen(port, () => {
