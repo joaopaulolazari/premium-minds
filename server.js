@@ -18,7 +18,8 @@ mongoose
   .connect('mongodb://root:root@mongo:27017/MapCoordinates?authSource=admin&w=1', {
     auth: { authdb: 'admin' },
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true,
   })
   .catch(err => {
     console.log('Unable to connect', err);

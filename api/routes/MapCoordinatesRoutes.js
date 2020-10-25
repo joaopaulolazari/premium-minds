@@ -1,13 +1,17 @@
-'use strict';
+const validator = require('express-joi-validation').createValidator({})
 
-module.exports = function(app) {
+const mapCoordinatesSchemas = require('../controllers/schemas/MapCoordinatesSchema');
+
+module.exports = (app) => {
   const mapCoordinatesController = require('../controllers/MapCoordinatesController');
 
   // MapCoordinates Routes
   app
-    .route('/map-coordinates')
-    //.get(todoList.list_all_tasks)
-    .post(mapCoordinatesController.create);
+    .post(
+      '/map-coordinates',
+      validator.body(mapCoordinatesSchemas.create),
+      mapCoordinatesController.create
+    );
 
   /*app
     .route('/tasks/:taskId')

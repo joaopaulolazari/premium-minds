@@ -13,4 +13,6 @@ const MapCoordinatesSchema = new Schema({
   },
 });
 
+MapCoordinatesSchema.index({x: 1, y: 1}, {unique: true});
+
 module.exports = mongoose.model('MapCoordinates', MapCoordinatesSchema);
