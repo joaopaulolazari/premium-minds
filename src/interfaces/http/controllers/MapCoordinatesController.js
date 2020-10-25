@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {
   moveInMap
-} =  require('../../../services/MapCoordinatesService');
+} =  require('../../../app/services/MapCoordinatesService');
 
 const MapCoordinates = mongoose.model('MapCoordinates');
 

@@ -3,7 +3,7 @@ const {
   insertCoordinate,
   findCoordinate,
   removeCoordinate
-} = require('../infra/database/repository/MapCoordinatesRepository');
+} = require('../../infra/database/repository/MapCoordinatesRepository');
 
 const moveInMap = async ({ command }) => {
   console.log('command', command);
