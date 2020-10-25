@@ -2,7 +2,9 @@ const {
   getLastCoordinate,
   insertCoordinate,
   findCoordinate,
-  removeCoordinate
+  removeCoordinate,
+  count: countCoord,
+  resetCollection
 } = require('../../infra/database/repository/MapCoordinatesRepository');
 
 const moveInMap = async ({ command }) => {
@@ -39,6 +41,17 @@ const moveInMap = async ({ command }) => {
   return newCoordinate;
 };
 
+const reset = async () => {
+  await resetCollection();
+};
+
+const count = async () => {
+  const countCoordinates = countCoord();
+  return countCoordinates;
+};
+
 module.exports = {
-  moveInMap
+  moveInMap,
+  count,
+  reset
 };

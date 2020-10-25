@@ -22,9 +22,20 @@ const removeCoordinate = async coordinates => {
   await MapCoordinates.deleteOne(coordinates);
 };
 
+const resetCollection = async () => {
+  await MapCoordinates.deleteMany();
+};
+
+const count = async () => {
+  const countCoordinates = await MapCoordinates.countDocuments();
+  return countCoordinates;
+};
+
 module.exports = {
   findCoordinate,
   getLastCoordinate,
   insertCoordinate,
-  removeCoordinate
+  removeCoordinate,
+  resetCollection,
+  count
 };
