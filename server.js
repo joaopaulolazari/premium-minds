@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 
 // eslint-disable-next-line no-unused-vars
-const MapCoordinates = require('./api/models/MapCoordinatesModel');
+const MapCoordinates = require('./api/infra/database/models/MapCoordinatesModel');
 // created model loading here
 
 const bodyParser = require('body-parser');
