@@ -11,4 +11,7 @@
       "error"
     ]
   },
+  "env": {
+    "mocha": true
+  }
 }
